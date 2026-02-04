@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W67DT0DWHT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W67DT0DWHT');
+    </script>
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Program | Earn Commissions Referring Clients | Shaminder.sg</title>
+    <meta name="description" content="Join the Shaminder.sg referral partner program. Earn 10% commission on every successful referral. Get your unique link, track earnings, and grow with us.">
+    <meta name="keywords" content="referral program singapore, partner program, affiliate marketing, earn commissions, digital marketing referrals">
+    <link rel="canonical" href="https://shaminder.sg/referrals/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shaminder.sg/referrals/">
+    <meta property="og:title" content="Partner Program | Earn Commissions | Shaminder.sg">
+    <meta property="og:description" content="Earn 10% commission on every successful referral. Join our partner program today.">
+    <meta property="og:image" content="https://shaminder.sg/shaminder.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top, rgba(0, 245, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--neon-cyan);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-white);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22d3ee, #67e8f9);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #67e8f9, #a5f3fc);
+            box-shadow: 0 6px 30px rgba(34, 211, 238, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--text-white);
+        }
+
+        .section-title span {
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-white);
+        }
+
+        .step-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Commission Section */
+        .commission {
+            padding: 100px 0;
+            background: var(--bg-card);
+        }
+
+        .commission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .commission-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-white);
+        }
+
+        .commission-text h2 span {
+            color: var(--neon-green);
+        }
+
+        .commission-text p {
+            color: var(--text-gray);
+            margin-bottom: 24px;
+        }
+
+        .commission-features {
+            list-style: none;
+        }
+
+        .commission-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            color: var(--text-gray);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .commission-features li:last-child {
+            border-bottom: none;
+        }
+
+        .commission-features svg {
+            width: 20px;
+            height: 20px;
+            color: var(--neon-green);
+            flex-shrink: 0;
+        }
+
+        .commission-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .commission-rate {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .commission-label {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 24px;
+        }
+
+        .commission-example {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+
+        .commission-example p {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .commission-example strong {
+            color: var(--neon-green);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: rgba(0, 245, 255, 0.3);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 245, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--neon-cyan);
+        }
+
+        .benefit-icon.green { background: rgba(0, 255, 136, 0.1); }
+        .benefit-icon.green svg { color: var(--neon-green); }
+        .benefit-icon.pink { background: rgba(255, 0, 170, 0.1); }
+        .benefit-icon.pink svg { color: var(--neon-pink); }
+        .benefit-icon.purple { background: rgba(191, 0, 255, 0.1); }
+        .benefit-icon.purple svg { color: var(--neon-purple); }
+        .benefit-icon.orange { background: rgba(255, 107, 0, 0.1); }
+        .benefit-icon.orange svg { color: var(--neon-orange); }
+
+        .benefit-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-white);
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), rgba(191, 0, 255, 0.1));
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-white);
+        }
+
+        .cta-section p {
+            color: var(--text-gray);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .steps-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .commission-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-badge">Partner Program</span>
+            <h1>Earn <span>30% Commission</span><br>On Every Referral</h1>
+            <p>Join our partner program and earn generous commissions when you refer businesses to Shaminder.sg. Simply send referrals to our email - we handle the rest.</p>
+            <div class="hero-cta">
+                <a href="apply.html" class="btn btn-primary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                    Apply Now
+                </a>
+                <a href="login.html" class="btn btn-secondary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                    Partner Login
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>30%</h3>
+                    <p>Commission Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$0</h3>
+                    <p>Joining Fee</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Simple</h3>
+                    <p>Email Referrals</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24hrs</h3>
+                    <p>Fast Approval</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It <span>Works</span></h2>
+            <p class="section-subtitle">Start earning in 3 simple steps. No technical skills required.</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Apply & Get Approved</h3>
+                    <p>Fill out a quick application form. We review all applications within 24 hours and notify you via email.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Send Referrals</h3>
+                    <p>Refer businesses by emailing <strong>hello@shaminder.sg</strong> with your name and the referral's details.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Earn Commissions</h3>
+                    <p>When your referrals become paying clients, you earn 30% of their project value. Simple as that.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Section -->
+    <section class="commission">
+        <div class="container">
+            <div class="commission-content">
+                <div class="commission-text">
+                    <h2>Generous <span>30%</span> Commission</h2>
+                    <p>We believe in rewarding our partners generously. Earn 30% on every successful referral with no upper limits on your earnings.</p>
+                    <ul class="commission-features">
+                        <li>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Unlimited earning potential
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Monthly payouts via PayNow or bank transfer
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Simple email-based referrals
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Commission on all services (websites, AI, marketing)
+                        </li>
+                        <li>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Track your referrals in the dashboard
+                        </li>
+                    </ul>
+                </div>
+                <div class="commission-card">
+                    <div class="commission-rate">30%</div>
+                    <div class="commission-label">Per Successful Referral</div>
+                    <a href="apply.html" class="btn btn-primary" style="width: 100%;">Become a Partner</a>
+                    <div class="commission-example">
+                        <p>Refer a $3,000 website project = <strong>$900 commission</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Partner <span>Benefits</span></h2>
+            <p class="section-subtitle">Everything you need to succeed as a referral partner.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h3>Real-Time Dashboard</h3>
+                    <p>Track your referrals, conversions, and earnings in real-time from your partner dashboard.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon green">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3>Fast Payouts</h3>
+                    <p>Get paid monthly via PayNow or bank transfer. No minimum threshold to withdraw.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon pink">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>Simple Email Referrals</h3>
+                    <p>Just email hello@shaminder.sg with your referral details. No complex tracking needed.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon purple">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3>Quality Services</h3>
+                    <p>Refer with confidence. Our high client satisfaction means more conversions for you.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon orange">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3>Leaderboard</h3>
+                    <p>Compete with other partners and see your ranking on our public leaderboard.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3>Dedicated Support</h3>
+                    <p>Get priority support via WhatsApp for any questions or partnership inquiries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Earning?</h2>
+            <p>Join our partner program today and start earning commissions on every successful referral.</p>
+            <div class="hero-cta">
+                <a href="apply.html" class="btn btn-primary">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    Apply Now - It's Free
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../shared-header.js?v=32"></script>
+    <script src="../shared-footer.js?v=6"></script>
+</body>
+</html>

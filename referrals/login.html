@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W67DT0DWHT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W67DT0DWHT');
+    </script>
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Login | Shaminder.sg</title>
+    <meta name="description" content="Login to your Shaminder.sg referral partner dashboard. Track your referrals, earnings, and manage your account.">
+    <link rel="canonical" href="https://shaminder.sg/referrals/login.html">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Login Section */
+        .login-section {
+            padding: 120px 0 80px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .login-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-white);
+        }
+
+        .login-header p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-white);
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            background: var(--bg-dark);
+            color: var(--text-white);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .password-field {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .password-toggle:hover {
+            color: var(--neon-cyan);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22d3ee, #67e8f9);
+            color: #000;
+            box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #67e8f9, #a5f3fc);
+            box-shadow: 0 6px 30px rgba(34, 211, 238, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success/Error Messages */
+        .message {
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .message.success {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--neon-green);
+        }
+
+        .message.error {
+            background: rgba(255, 0, 170, 0.1);
+            border: 1px solid rgba(255, 0, 170, 0.3);
+            color: var(--neon-pink);
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 24px;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .login-footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Demo Notice */
+        .demo-notice {
+            background: rgba(255, 107, 0, 0.1);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--neon-orange);
+        }
+
+        .demo-notice strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="login-section">
+        <div class="container">
+            <div class="login-header">
+                <h1>Partner Login</h1>
+                <p>Access your referral dashboard</p>
+            </div>
+
+            <div class="login-card">
+                <div id="demoNotice" class="demo-notice" style="display: none;">
+                    <strong>Demo Mode</strong>
+                    Backend not configured. Using localStorage for testing.
+                </div>
+
+                <div id="message" class="message"></div>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="password-field">
+                            <input type="password" id="password" name="password" required placeholder="Enter your password" autocomplete="current-password">
+                            <button type="button" class="password-toggle" onclick="togglePassword()">
+                                <svg id="eyeIcon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary">
+                        <span id="btnText">Login</span>
+                        <div id="btnSpinner" class="spinner" style="display: none;"></div>
+                    </button>
+                </form>
+
+                <div class="login-footer">
+                    Don't have an account? <a href="apply.html">Apply now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../shared-header.js?v=32"></script>
+    <script src="../shared-footer.js?v=6"></script>
+
+    <script>
+        // Referral Partner API Configuration
+        const REFERRAL_API_URL = 'https://script.google.com/macros/s/AKfycbwq9tII7H8_QLJ5TnbLgm2K01NGLzki8-YGd-SaJSSvLYVHCD8Xth95-Pu8yErnqiFp/exec';
+        const SALT = 'shaminder_referral_2026';
+        const SESSION_KEY = 'partner_session';
+        const SESSION_DURATION = 7 * 24 * 60 * 60 * 1000; // 7 days
+
+        // Check if already logged in
+        (async function() {
+            const session = JSON.parse(localStorage.getItem(SESSION_KEY) || '{}');
+            if (session.loginTime && (Date.now() - session.loginTime) < SESSION_DURATION) {
+                window.location.href = 'dashboard.html';
+            }
+
+            // Show demo notice and create demo account if backend not configured
+            if (REFERRAL_API_URL.includes('YOUR_DEPLOYMENT_ID')) {
+                document.getElementById('demoNotice').style.display = 'block';
+
+                // Create demo account if not exists
+                let partners = JSON.parse(localStorage.getItem('referral_partners') || '[]');
+                const demoEmail = 'demo@shaminder.sg';
+                if (!partners.find(p => p.email === demoEmail)) {
+                    const demoPasswordHash = await sha256('demo123' + SALT);
+                    partners.push({
+                        id: 'DEMO001',
+                        name: 'Demo Partner',
+                        email: demoEmail,
+                        password: demoPasswordHash,
+                        phone: '+65 9123 4567',
+                        company: 'Demo Company',
+                        referralCode: 'DEMO2026',
+                        status: 'approved',
+                        commissionRate: 30,
+                        totalReferrals: 5,
+                        totalEarnings: 1500,
+                        pendingPayout: 450,
+                        createdAt: new Date().toISOString()
+                    });
+                    localStorage.setItem('referral_partners', JSON.stringify(partners));
+                    console.log('Demo account created: demo@shaminder.sg / demo123');
+                }
+            }
+        })();
+
+        // SHA256 Hash Function
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Toggle Password Visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>';
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>';
+            }
+        }
+
+        // Show Message
+        function showMessage(type, text) {
+            const messageEl = document.getElementById('message');
+            messageEl.className = 'message ' + type + ' show';
+            messageEl.textContent = text;
+        }
+
+        // Handle Login
+        async function handleLogin(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Logging in...';
+            btnSpinner.style.display = 'block';
+
+            try {
+                const email = document.getElementById('email').value.trim().toLowerCase();
+                const passwordHash = await sha256(document.getElementById('password').value + SALT);
+
+                if (REFERRAL_API_URL.includes('YOUR_DEPLOYMENT_ID')) {
+                    // Demo mode - check localStorage
+                    const partners = JSON.parse(localStorage.getItem('referral_partners') || '[]');
+                    const partner = partners.find(p => p.email === email && p.password === passwordHash);
+
+                    if (!partner) {
+                        showMessage('error', 'Invalid email or password.');
+                        return;
+                    }
+
+                    if (partner.status === 'pending') {
+                        showMessage('error', 'Your application is still pending approval. Please wait for confirmation.');
+                        return;
+                    }
+
+                    if (partner.status === 'suspended') {
+                        showMessage('error', 'Your account has been suspended. Please contact support.');
+                        return;
+                    }
+
+                    // Create session
+                    const session = {
+                        id: partner.id,
+                        name: partner.name,
+                        email: partner.email,
+                        referralCode: partner.referralCode,
+                        loginTime: Date.now()
+                    };
+                    localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+
+                    showMessage('success', 'Login successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                } else {
+                    // Real API call
+                    const response = await fetch(REFERRAL_API_URL, {
+                        method: 'POST',
+                        redirect: 'follow',
+                        body: JSON.stringify({ action: 'login', email, passwordHash })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        const session = {
+                            id: result.partner.id,
+                            name: result.partner.name,
+                            email: result.partner.email,
+                            referralCode: result.partner.referralCode,
+                            loginTime: Date.now()
+                        };
+                        localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+
+                        showMessage('success', 'Login successful! Redirecting...');
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 1000);
+                    } else {
+                        showMessage('error', result.error || 'Invalid email or password.');
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('error', 'Network error. Please try again.');
+            } finally {
+                submitBtn.disabled = false;
+                btnText.textContent = 'Login';
+                btnSpinner.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
