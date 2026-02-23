@@ -279,9 +279,9 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Behind the Scenes</h2>
               <p className="text-gray-400">Quick tips and real talk from our YouTube channel</p>
             </div>
-            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:snap-none md:pb-0">
-              {['ZLMRVyhKzRM', 'VZyfDEVEDTE', 'SLmryJ3Wl6I'].map((id, i) => (
-                <div key={i} className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-gray-800 min-w-[70vw] sm:min-w-[55vw] md:min-w-0 snap-center">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
+              {['ZLMRVyhKzRM', 'VZyfDEVEDTE', 'SLmryJ3Wl6I', 'NGaucg8C0E4'].map((id, i) => (
+                <div key={i} className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-gray-800 min-w-[70vw] sm:min-w-[55vw] md:min-w-[280px] flex-shrink-0 snap-center">
                   <iframe
                     src={`https://www.youtube.com/embed/${id}`}
                     title={`YouTube Short ${i + 1}`}
