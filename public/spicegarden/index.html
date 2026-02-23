@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W67DT0DWHT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W67DT0DWHT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden | Authentic Indian Restaurant Singapore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #d97706;
+            --primary-dark: #b45309;
+            --primary-light: #f59e0b;
+            --accent: #dc2626;
+            --bg: #0c0a09;
+            --bg-card: #1c1917;
+            --text: #fafaf9;
+            --text-secondary: #a8a29e;
+            --border: rgba(255,255,255,0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(12, 10, 9, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            background: linear-gradient(rgba(12, 10, 9, 0.7), rgba(12, 10, 9, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23d97706" stroke-width="0.5" opacity="0.1"/></svg>');
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+        .hero-tagline {
+            color: var(--primary);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span { color: var(--primary); }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(var(--primary), transparent);
+        }
+
+        /* Features */
+        .section { padding: 100px 0; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 40px 24px;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Menu */
+        .menu-section { background: var(--bg-card); }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .menu-tab:hover, .menu-tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .menu-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            background: var(--bg);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.1);
+        }
+
+        .menu-item-image {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+
+        .menu-item-content { flex: 1; }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+
+        .menu-item h3 { font-size: 20px; }
+        .menu-item-price { font-size: 20px; font-weight: 600; color: var(--primary); }
+        .menu-item p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+
+        .spice-level {
+            display: flex;
+            gap: 2px;
+            margin-top: 8px;
+        }
+
+        .spice-level span {
+            font-size: 12px;
+        }
+
+        /* Reservation */
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .reservation-content h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+        }
+
+        .reservation-content p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .info-list li span {
+            font-size: 24px;
+        }
+
+        .reservation-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; margin-bottom: 8px; color: var(--text-secondary); }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--primary); }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: var(--bg-card);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; font-size: 80px; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-card);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo { margin-bottom: 16px; display: inline-block; }
+        .footer-brand p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+
+        .footer-links h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-secondary); font-size: 14px; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-bottom p { color: var(--text-secondary); font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid, .menu-grid, .reservation-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 42px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Spice Garden</a>
+        <ul class="nav-links">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#reservation" class="btn btn-primary">Book Table</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tagline">Authentic Indian Cuisine</p>
+            <h1>A Journey Through <span>Indian Flavors</span></h1>
+            <p>Experience the rich tapestry of Indian cuisine. From aromatic biryanis to sizzling tandoori, every dish tells a story of tradition and passion.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="#reservation" class="btn btn-outline">Reserve Table</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">Scroll</div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">&#127798;</div>
+                    <h3>Fresh Spices</h3>
+                    <p>Imported directly from India, ground fresh daily for authentic flavors</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">&#128293;</div>
+                    <h3>Tandoor Oven</h3>
+                    <p>Traditional clay oven cooking for perfect naan and kebabs</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">&#128104;&#8205;&#127859;</div>
+                    <h3>Master Chefs</h3>
+                    <p>Experienced chefs from various regions of India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Our Menu</p>
+                <h2 class="section-title">Signature Dishes</h2>
+                <p class="section-subtitle">Handcrafted recipes passed down through generations</p>
+            </div>
+            <div class="menu-tabs">
+                <button class="menu-tab active">Starters</button>
+                <button class="menu-tab">Tandoor</button>
+                <button class="menu-tab">Curries</button>
+                <button class="menu-tab">Biryani</button>
+                <button class="menu-tab">Breads</button>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-item-image">&#129367;</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Butter Chicken</h3>
+                            <span class="menu-item-price">$18</span>
+                        </div>
+                        <p>Tender chicken in rich tomato-butter gravy, finished with cream</p>
+                        <div class="spice-level">
+                            <span>&#127798;</span><span>&#127798;</span><span style="opacity:0.3">&#127798;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image">&#127858;</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Lamb Biryani</h3>
+                            <span class="menu-item-price">$22</span>
+                        </div>
+                        <p>Fragrant basmati rice with tender lamb, saffron and whole spices</p>
+                        <div class="spice-level">
+                            <span>&#127798;</span><span>&#127798;</span><span>&#127798;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image">&#129385;</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Tandoori Prawns</h3>
+                            <span class="menu-item-price">$24</span>
+                        </div>
+                        <p>Jumbo prawns marinated in yogurt and spices, grilled in tandoor</p>
+                        <div class="spice-level">
+                            <span>&#127798;</span><span>&#127798;</span><span style="opacity:0.3">&#127798;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-image">&#129361;</div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Palak Paneer</h3>
+                            <span class="menu-item-price">$16</span>
+                        </div>
+                        <p>Cottage cheese cubes in creamy spinach gravy with mild spices</p>
+                        <div class="spice-level">
+                            <span>&#127798;</span><span style="opacity:0.3">&#127798;</span><span style="opacity:0.3">&#127798;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="reservation">
+        <div class="container">
+            <div class="reservation-grid">
+                <div class="reservation-content">
+                    <p class="section-label">Reservation</p>
+                    <h2>Book Your Table</h2>
+                    <p>Join us for an unforgettable dining experience. Reserve your table online or call us directly. We also offer private dining for special occasions.</p>
+                    <ul class="info-list">
+                        <li><span>&#128205;</span> 123 Orchard Road, #01-45, Singapore</li>
+                        <li><span>&#128222;</span> +65 6789 1234</li>
+                        <li><span>&#128340;</span> Tue-Sun: 12pm-3pm, 6pm-10:30pm</li>
+                        <li><span>&#128235;</span> reservations@spicegarden.sg</li>
+                    </ul>
+                </div>
+                <div class="reservation-form">
+                    <form onsubmit="event.preventDefault(); alert('Reservation confirmed! We look forward to seeing you.');">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" class="form-control" placeholder="+65" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Time</label>
+                                <select class="form-control">
+                                    <option>12:00 PM</option>
+                                    <option>12:30 PM</option>
+                                    <option>1:00 PM</option>
+                                    <option>6:00 PM</option>
+                                    <option>6:30 PM</option>
+                                    <option>7:00 PM</option>
+                                    <option>7:30 PM</option>
+                                    <option>8:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Guests</label>
+                            <select class="form-control">
+                                <option>2 guests</option>
+                                <option>3 guests</option>
+                                <option>4 guests</option>
+                                <option>5 guests</option>
+                                <option>6 guests</option>
+                                <option>7+ guests (call us)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Special Requests</label>
+                            <textarea class="form-control" rows="3" placeholder="Allergies, special occasions, etc."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%">Confirm Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section menu-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Gallery</p>
+                <h2 class="section-title">Feast Your Eyes</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">&#127858;</div>
+                <div class="gallery-item">&#129367;</div>
+                <div class="gallery-item">&#127790;</div>
+                <div class="gallery-item">&#129385;</div>
+                <div class="gallery-item">&#129361;</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Spice Garden</a>
+                    <p>Bringing the authentic flavors of India to Singapore since 2010. Every dish is prepared with love, tradition, and the finest ingredients.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#reservation">Reservation</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#">Catering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Hours</h4>
+                    <ul>
+                        <li><a href="#">Tue-Fri: 12-3pm</a></li>
+                        <li><a href="#">Tue-Sun: 6-10:30pm</a></li>
+                        <li><a href="#">Monday: Closed</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">TripAdvisor</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Spice Garden. All rights reserved. | Demo site by shaminder.sg</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6598137066?text=Hi%20Shaminder!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20know%20more." class="whatsapp-float" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <style>
+        .whatsapp-float{position:fixed;bottom:100px;right:30px;width:56px;height:56px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:998;transition:all .3s ease;text-decoration:none}
+        .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,0.6)}
+        .whatsapp-float svg{width:28px;height:28px;fill:#fff}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        @keyframes typing{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+        @media(max-width:480px){.whatsapp-float{bottom:90px;right:20px;width:50px;height:50px}.whatsapp-float svg{width:24px;height:24px}}
+    </style>
+
+    
+
+<script src="../shared-header.js?v=30"></script>
+<script src="../shared-footer.js?v=5"></script>
+</body>
+</html>

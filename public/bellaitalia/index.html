@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W67DT0DWHT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W67DT0DWHT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Italia | Authentic Italian Restaurant Singapore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #b91c1c;
+            --primary-dark: #991b1b;
+            --primary-light: #dc2626;
+            --cream: #fef7ed;
+            --olive: #4d7c0f;
+            --bg: #fffbf5;
+            --bg-dark: #1a1a1a;
+            --text: #292524;
+            --text-light: #78716c;
+            --border: #e7e5e4;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 251, 245, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 100px 60px;
+            gap: 60px;
+        }
+
+        .hero-content { max-width: 500px; }
+
+        .hero-tagline {
+            color: var(--olive);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons { display: flex; gap: 20px; }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--text);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--text);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 450px;
+            height: 550px;
+            background: linear-gradient(135deg, var(--cream), #fff);
+            border-radius: 200px 200px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 150px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: white;
+            padding: 20px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .floating-badge.badge-1 {
+            top: 60px;
+            left: -60px;
+        }
+
+        .floating-badge.badge-2 {
+            bottom: 100px;
+            right: -60px;
+        }
+
+        .badge-icon { font-size: 32px; margin-bottom: 8px; }
+        .floating-badge h4 { font-family: 'Cormorant Garamond', serif; font-size: 18px; }
+        .floating-badge p { font-size: 12px; color: var(--text-light); margin: 0; }
+
+        /* About */
+        .section { padding: 100px 0; }
+
+        .about-section { background: var(--cream); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            display: flex;
+            gap: 20px;
+        }
+
+        .about-img {
+            flex: 1;
+            height: 400px;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .about-img:first-child { margin-top: 40px; }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 16px;
+            line-height: 1.9;
+        }
+
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-style: italic;
+            margin-top: 24px;
+        }
+
+        /* Menu */
+        .section-header { text-align: center; margin-bottom: 60px; }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .category-item {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-item:hover, .category-item.active {
+            color: var(--primary);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 12px;
+            transition: all 0.3s;
+        }
+
+        .category-item:hover .category-icon, .category-item.active .category-icon {
+            background: var(--primary);
+        }
+
+        .category-item h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+        }
+
+        .menu-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .menu-item-info h3 {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .menu-item-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .menu-item-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        /* Specials */
+        .specials-section { background: var(--bg-dark); color: white; }
+
+        .specials-section .section-label { color: var(--cream); }
+        .specials-section .section-subtitle { color: rgba(255,255,255,0.7); }
+
+        .specials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .special-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .special-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-8px);
+        }
+
+        .special-icon { font-size: 60px; margin-bottom: 20px; }
+        .special-card h3 { font-size: 26px; margin-bottom: 8px; }
+        .special-card .price { color: var(--cream); font-size: 20px; margin-bottom: 16px; }
+        .special-card p { color: rgba(255,255,255,0.6); font-size: 14px; }
+
+        /* Delivery */
+        .delivery-banner {
+            background: linear-gradient(135deg, var(--olive), #65a30d);
+            border-radius: 16px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .delivery-content h2 { font-size: 36px; margin-bottom: 12px; }
+        .delivery-content p { opacity: 0.9; font-size: 16px; }
+
+        .delivery-apps {
+            display: flex;
+            gap: 16px;
+        }
+
+        .app-btn {
+            background: white;
+            color: var(--text);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .app-btn:hover { transform: scale(1.05); }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 { font-size: 42px; margin-bottom: 24px; }
+        .contact-info > p { color: var(--text-light); margin-bottom: 32px; }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .info-text h4 { font-size: 14px; color: var(--text-light); margin-bottom: 4px; font-weight: 500; }
+        .info-text p { font-size: 16px; margin: 0; }
+
+        .contact-form {
+            background: var(--cream);
+            padding: 48px;
+        }
+
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; font-size: 12px; margin-bottom: 8px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            background: white;
+            border: 1px solid var(--border);
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--text);
+        }
+
+        .form-control:focus { outline: none; border-color: var(--primary); }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer .logo { color: white; }
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { color: rgba(255,255,255,0.6); font-size: 14px; }
+        .footer-links a:hover { color: white; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero-visual { order: -1; }
+            .specials-grid { grid-template-columns: 1fr; }
+            .delivery-banner { flex-direction: column; text-align: center; gap: 24px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 42px; }
+            .menu-categories { flex-wrap: wrap; gap: 20px; }
+            .about-image { flex-direction: column; }
+            .about-img { height: 250px; }
+            .about-img:first-child { margin-top: 0; }
+            .footer-content { flex-direction: column; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Bella Italia</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#specials">Specials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Reserve</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tagline">Est. 2015 &bull; Singapore</p>
+            <h1>The Art of Italian Dining</h1>
+            <p>Step into Bella Italia and experience the warmth of Italian hospitality. Our recipes, passed down through generations, bring the authentic taste of Italy to your table.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="#contact" class="btn btn-outline">Book Table</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image">&#127829;</div>
+            <div class="floating-badge badge-1">
+                <div class="badge-icon">&#127942;</div>
+                <h4>Award Winner</h4>
+                <p>Best Italian 2025</p>
+            </div>
+            <div class="floating-badge badge-2">
+                <div class="badge-icon">&#11088;</div>
+                <h4>4.9 Rating</h4>
+                <p>500+ Reviews</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="about-img">&#127837;</div>
+                    <div class="about-img">&#129346;</div>
+                </div>
+                <div class="about-content">
+                    <p class="section-label">Our Story</p>
+                    <h2 class="section-title">A Family Tradition Since 1985</h2>
+                    <p>What started as a small trattoria in Naples has blossomed into a beloved Singapore destination. Our family's passion for authentic Italian cuisine drives everything we do.</p>
+                    <p>Every dish is crafted with imported Italian ingredients, traditional techniques, and a whole lot of love. From our hand-rolled pasta to our wood-fired pizzas, taste the difference of true Italian cooking.</p>
+                    <p class="signature">- Chef Marco Rossi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Il Menu</p>
+                <h2 class="section-title">Our Specialties</h2>
+                <p class="section-subtitle">Fresh ingredients, timeless recipes, unforgettable flavors</p>
+            </div>
+            <div class="menu-categories">
+                <div class="category-item active">
+                    <div class="category-icon">&#127829;</div>
+                    <h4>Pizza</h4>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">&#127837;</div>
+                    <h4>Pasta</h4>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">&#129385;</div>
+                    <h4>Seafood</h4>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">&#127856;</div>
+                    <h4>Desserts</h4>
+                </div>
+            </div>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h3>Margherita D.O.P</h3>
+                        <p>San Marzano tomatoes, buffalo mozzarella, fresh basil</p>
+                    </div>
+                    <span class="menu-item-price">$24</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h3>Quattro Formaggi</h3>
+                        <p>Mozzarella, gorgonzola, parmesan, taleggio</p>
+                    </div>
+                    <span class="menu-item-price">$28</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h3>Prosciutto e Rucola</h3>
+                        <p>Parma ham, fresh arugula, shaved parmesan</p>
+                    </div>
+                    <span class="menu-item-price">$30</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h3>Diavola</h3>
+                        <p>Spicy salami, chili flakes, roasted peppers</p>
+                    </div>
+                    <span class="menu-item-price">$26</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section specials-section" id="specials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Weekly Specials</p>
+                <h2 class="section-title" style="color:white">Chef's Recommendations</h2>
+                <p class="section-subtitle">Limited time offers you don't want to miss</p>
+            </div>
+            <div class="specials-grid">
+                <div class="special-card">
+                    <div class="special-icon">&#127863;</div>
+                    <h3>Wine Wednesday</h3>
+                    <p class="price">50% off wines</p>
+                    <p>Half price on all bottles of wine every Wednesday evening</p>
+                </div>
+                <div class="special-card">
+                    <div class="special-icon">&#127829;</div>
+                    <h3>Pizza Sunday</h3>
+                    <p class="price">1-for-1 Pizzas</p>
+                    <p>Buy any pizza, get another of equal or lesser value free</p>
+                </div>
+                <div class="special-card">
+                    <div class="special-icon">&#128106;</div>
+                    <h3>Family Feast</h3>
+                    <p class="price">$99 for 4</p>
+                    <p>Antipasti, 2 pizzas, 2 pastas, dessert platter</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="delivery-banner">
+                <div class="delivery-content">
+                    <h2>Order Delivery</h2>
+                    <p>Enjoy Bella Italia at home. Order through your favorite delivery app.</p>
+                </div>
+                <div class="delivery-apps">
+                    <a href="#" class="app-btn">GrabFood</a>
+                    <a href="#" class="app-btn">Deliveroo</a>
+                    <a href="#" class="app-btn">foodpanda</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p class="section-label">Visit Us</p>
+                    <h2>Make a Reservation</h2>
+                    <p>Join us for lunch or dinner. For parties of 8 or more, please call us directly.</p>
+                    <div class="info-item">
+                        <div class="info-icon">&#128205;</div>
+                        <div class="info-text">
+                            <h4>Address</h4>
+                            <p>50 Boat Quay, Singapore 049837</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">&#128222;</div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <p>+65 6532 1234</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">&#128340;</div>
+                        <div class="info-text">
+                            <h4>Hours</h4>
+                            <p>Mon-Sun: 12pm - 10:30pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Grazie! Your reservation has been confirmed.');">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date & Time</label>
+                            <input type="datetime-local" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea class="form-control" placeholder="Number of guests, special requests..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%">Reserve Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">Bella Italia</a>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#specials">Specials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bella Italia. All rights reserved. | Demo site by shaminder.sg</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6598137066?text=Hi%20Shaminder!%20I'm%20interested%20in%20your%20services%20and%20would%20like%20to%20know%20more." class="whatsapp-float" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <style>
+        .whatsapp-float{position:fixed;bottom:100px;right:30px;width:56px;height:56px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:998;transition:all .3s ease;text-decoration:none}
+        .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,0.6)}
+        .whatsapp-float svg{width:28px;height:28px;fill:#fff}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        @keyframes typing{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+        @media(max-width:480px){.whatsapp-float{bottom:90px;right:20px;width:50px;height:50px}.whatsapp-float svg{width:24px;height:24px}}
+    </style>
+
+    
+
+<script src="../shared-header.js?v=30"></script>
+<script src="../shared-footer.js?v=5"></script>
+</body>
+</html>
