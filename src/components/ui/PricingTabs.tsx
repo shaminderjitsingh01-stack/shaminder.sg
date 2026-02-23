@@ -1,173 +1,271 @@
 'use client'
 
 import { useState } from 'react'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Zap, Mail, ArrowRight, MessageCircle, Shield } from 'lucide-react'
 
 export default function PricingTabs() {
-  const [tab, setTab] = useState<'bundles' | 'onetime' | 'monthly'>('bundles')
+  const [tab, setTab] = useState<'marketing' | 'websites' | 'email'>('marketing')
 
   return (
     <section id="packages" className="py-16 md:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Transparent Pricing</h2>
-        <p className="text-gray-600 text-center mb-8">Pay for what you need. One-time builds + optional ongoing services.</p>
+        <p className="text-gray-600 text-center mb-8">Simple, honest pricing. No hidden fees. Cancel anytime.</p>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-10">
           <div className="inline-flex bg-gray-100 rounded-xl p-1">
-            {(['bundles', 'onetime', 'monthly'] as const).map((t) => (
+            {([
+              { key: 'marketing' as const, label: 'Digital Marketing' },
+              { key: 'websites' as const, label: 'Websites' },
+              { key: 'email' as const, label: 'Email Marketing' },
+            ]).map((t) => (
               <button
-                key={t}
-                onClick={() => setTab(t)}
+                key={t.key}
+                onClick={() => setTab(t.key)}
                 className={`px-3 py-2 text-sm sm:px-6 sm:py-3 sm:text-base rounded-lg font-medium transition ${
-                  tab === t ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'
+                  tab === t.key ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                {t === 'bundles' ? 'Bundles' : t === 'onetime' ? 'One-Time' : 'Monthly'}
+                {t.label}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Bundles */}
-        {tab === 'bundles' && (
-          <div>
-            <p className="text-gray-600 text-center mb-8">Save time with pre-packaged solutions. Best value for most businesses.</p>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl border border-gray-200 p-8 hover:border-indigo-200 hover:shadow-lg transition">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">Starter Bundle</h4>
-                <div className="mb-4">
-                  <div className="flex items-baseline gap-2"><span className="text-3xl font-bold text-gray-900">$1,800</span><span className="text-gray-500">one-time</span></div>
-                  <div className="flex items-baseline gap-2"><span className="text-xl font-bold text-indigo-600">+ $150</span><span className="text-gray-500">/month</span></div>
-                </div>
-                <div className="mb-6">
-                  <p className="text-sm font-medium text-gray-700 mb-2">One-time setup:</p>
-                  <ul className="space-y-1 text-sm text-gray-600 mb-4">
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Starter Website (5 pages)</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Google Business Setup</li>
-                  </ul>
-                  <p className="text-sm font-medium text-gray-700 mb-2">Monthly:</p>
-                  <ul className="space-y-1 text-sm text-gray-600">
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Hosting & maintenance</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Small edits (2/month)</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Email support</li>
-                  </ul>
-                </div>
-                <p className="text-sm text-gray-500 mb-6">Best for: New businesses, freelancers</p>
-                <a href="https://calendly.com/shaminder_sg/letstalk" target="_blank" rel="noopener noreferrer" className="block text-center bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Get Started</a>
-              </div>
-
-              <div className="bg-indigo-600 rounded-2xl p-8 text-white relative shadow-xl">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2"><span className="bg-orange-500 text-white text-sm font-medium px-4 py-1 rounded-full">Most Popular</span></div>
-                <h4 className="text-xl font-bold mb-4">Growth Bundle</h4>
-                <div className="mb-4">
-                  <div className="flex items-baseline gap-2"><span className="text-3xl font-bold">$4,500</span><span className="text-indigo-200">one-time</span></div>
-                  <div className="flex items-baseline gap-2"><span className="text-xl font-bold">+ $1,200</span><span className="text-indigo-200">/month</span></div>
-                </div>
-                <div className="mb-6">
-                  <p className="text-sm font-medium text-indigo-200 mb-2">One-time setup:</p>
-                  <ul className="space-y-1 text-sm mb-4">
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> Business Website (10+ pages)</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> Google Business Setup</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> Sales Funnel</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> CRM Setup</li>
-                  </ul>
-                  <p className="text-sm font-medium text-indigo-200 mb-2">Monthly:</p>
-                  <ul className="space-y-1 text-sm">
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> Hosting & maintenance</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> Social media (12 posts/mo)</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> Email marketing (2 campaigns)</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-indigo-300 mr-2 flex-shrink-0" /> Monthly strategy call</li>
-                  </ul>
-                </div>
-                <p className="text-sm text-indigo-200 mb-6">Best for: SMEs ready to grow</p>
-                <a href="https://calendly.com/shaminder_sg/letstalk" target="_blank" rel="noopener noreferrer" className="block text-center bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition">Get Started</a>
-              </div>
-
-              <div className="bg-white rounded-2xl border border-gray-200 p-8 hover:border-indigo-200 hover:shadow-lg transition">
-                <h4 className="text-xl font-bold text-gray-900 mb-4">Scale Bundle</h4>
-                <div className="mb-4">
-                  <div className="flex items-baseline gap-2"><span className="text-3xl font-bold text-gray-900">$7,000</span><span className="text-gray-500">one-time</span></div>
-                  <div className="flex items-baseline gap-2"><span className="text-xl font-bold text-indigo-600">+ $2,800</span><span className="text-gray-500">/month</span></div>
-                </div>
-                <div className="mb-6">
-                  <p className="text-sm font-medium text-gray-700 mb-2">One-time setup:</p>
-                  <ul className="space-y-1 text-sm text-gray-600 mb-4">
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Business Website (10+ pages)</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Full CRM + automation</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Sales funnel system</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Google Business Setup</li>
-                  </ul>
-                  <p className="text-sm font-medium text-gray-700 mb-2">Monthly:</p>
-                  <ul className="space-y-1 text-sm text-gray-600">
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Everything in Growth</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Paid ads management</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Content creation (4/mo)</li>
-                    <li className="flex items-center"><CheckCircle size={14} className="text-green-500 mr-2 flex-shrink-0" /> Bi-weekly strategy calls</li>
-                  </ul>
-                </div>
-                <p className="text-sm text-gray-500 mb-6">Best for: Serious growth, multi-location</p>
-                <a href="https://calendly.com/shaminder_sg/letstalk" target="_blank" rel="noopener noreferrer" className="block text-center bg-gray-100 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Get Started</a>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* One-Time */}
-        {tab === 'onetime' && (
-          <div>
-            <p className="text-gray-600 text-center mb-8">Build it once, own it forever. No recurring fees for the build itself.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { name: 'Starter Website', price: '$1,500', time: '1 week', tagline: 'Perfect for new businesses', desc: '5 pages, mobile-optimised, basic SEO, contact form' },
-                { name: 'Business Website', price: '$3,000', time: '2 weeks', tagline: 'For established SMEs', desc: '10+ pages, blog setup, advanced SEO, multiple forms' },
-                { name: 'Landing Page', price: '$500', time: '3 days', tagline: 'For ads & campaigns', desc: 'Single high-converting page + thank you page' },
-                { name: 'Sales Funnel', price: '$1,000', time: '5 days', tagline: 'Capture & nurture leads', desc: 'Landing page + email capture + follow-up sequence' },
-                { name: 'E-commerce Store', price: '$5,000', time: '2-3 weeks', tagline: 'Sell products online', desc: 'Full online store, payments, product management' },
-                { name: 'AI Automation', price: '$800', time: '1 week', tagline: 'Work smarter, not harder', desc: 'AI chatbot, automated workflows, lead qualification' },
-                { name: 'Google Business Setup', price: '$300', time: '2 days', tagline: 'Get found locally', desc: 'Full optimisation, photos, posts, review system' },
-                { name: 'CRM Setup', price: '$500', time: '3 days', tagline: 'Organise your leads', desc: 'Pipeline, automations, email/SMS templates' },
-              ].map((service, i) => (
-                <div key={i} className="bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-200 hover:shadow-md transition">
-                  <h4 className="font-bold text-gray-900 mb-1">{service.name}</h4>
-                  <p className="text-xs text-indigo-600 font-medium mb-2">{service.tagline}</p>
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-2xl font-bold text-indigo-600">{service.price}</span>
-                    <span className="text-sm text-gray-500">• {service.time}</span>
+        {/* Digital Marketing - Trial + Full Package */}
+        {tab === 'marketing' && (
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* 7-Day Trial */}
+            <div className="bg-white rounded-2xl border-2 border-indigo-200 p-6 md:p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl">7-DAY TRIAL</div>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Try Before You Commit</h3>
+                  <p className="text-gray-600 text-sm mb-4">Experience our digital marketing service risk-free for 7 days. See the quality before you decide.</p>
+                  <div className="flex flex-wrap gap-x-6 gap-y-2">
+                    {[
+                      'Full SEO audit of your website',
+                      '4 social media posts across 8 platforms',
+                      '1 blog article generated & published',
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <CheckCircle size={14} className="text-green-500 flex-shrink-0" />
+                        <span className="text-sm text-gray-700">{item}</span>
+                      </div>
+                    ))}
                   </div>
-                  <p className="text-sm text-gray-600">{service.desc}</p>
                 </div>
-              ))}
+                <div className="flex flex-col items-center md:items-end gap-3 flex-shrink-0">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-bold text-indigo-600">FREE</span>
+                  </div>
+                  <a
+                    href="https://wa.me/6598137066?text=Hi%20Shaminder,%20I'd%20like%20to%20start%20the%207-day%20free%20trial%20for%20digital%20marketing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition text-sm"
+                  >
+                    Start Free Trial
+                    <ArrowRight className="ml-2" size={16} />
+                  </a>
+                  <p className="text-xs text-gray-500">No credit card required</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Full Package */}
+            <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-8 md:p-12 text-white relative shadow-xl overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+              <div className="relative">
+                <div className="flex items-center gap-2 mb-2">
+                  <Zap size={20} className="text-yellow-300" fill="currentColor" />
+                  <span className="text-sm font-semibold text-indigo-200 uppercase tracking-wide">Done-For-You</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-2">Digital Marketing Package</h3>
+                <p className="text-indigo-200 mb-6">Everything you need to grow online — managed by us, powered by our proprietary marketing platform.</p>
+
+                <div className="flex items-baseline gap-2 mb-8">
+                  <span className="text-5xl md:text-6xl font-bold">$1,500</span>
+                  <span className="text-xl text-indigo-200">/month</span>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8">
+                  {[
+                    'SEO — keyword tracking, backlinks, competitor monitoring',
+                    'Social media — 16 posts/month across 8 platforms',
+                    'Google Business Profile — setup, posts & review management',
+                    'Content creation — 4 blog articles/month',
+                    'Paid ads management — Google, Meta, TikTok, LinkedIn',
+                    'Push notifications — web push campaigns',
+                    'Monthly performance reports — AI-powered insights',
+                    'Real-time marketing dashboard — full transparency',
+                    'Content approval workflow — review before it goes live',
+                    'Competitor analysis — stay ahead of your rivals',
+                    'Dedicated account manager — WhatsApp support',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle size={16} className="text-indigo-300 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="https://calendly.com/shaminder_sg/letstalk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold hover:bg-indigo-50 transition"
+                  >
+                    Book a Free Strategy Call
+                    <ArrowRight className="ml-2" size={18} />
+                  </a>
+                  <a
+                    href="https://wa.me/6598137066?text=Hi%20Shaminder,%20I'm%20interested%20in%20the%20$1,500/mo%20digital%20marketing%20package"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-white/10 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition border border-white/20"
+                  >
+                    <MessageCircle className="mr-2" size={18} />
+                    Ask on WhatsApp
+                  </a>
+                </div>
+
+                <p className="text-indigo-300 text-sm mt-6">No lock-in contract. 30-day notice to cancel. Ad spend billed separately.</p>
+              </div>
             </div>
           </div>
         )}
 
-        {/* Monthly */}
-        {tab === 'monthly' && (
+        {/* Websites - One-Time */}
+        {tab === 'websites' && (
           <div>
-            <p className="text-gray-600 text-center mb-8">Ongoing work that keeps your business growing. Cancel anytime.</p>
+            <p className="text-gray-600 text-center mb-8">Build it once, own it forever. All websites include mobile-optimised design, SEO setup, and 30-day support.</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { name: 'Maintenance & Hosting', price: '$150', tagline: 'Keep your site running smooth', desc: 'Hosting, SSL, updates, backups, 2 small edits/month' },
-                { name: 'Social Media Management', price: '$600', tagline: 'Stay visible & consistent', desc: '12 posts/month, captions, hashtags, scheduling' },
-                { name: 'Content Creation', price: '$800', tagline: 'Fuel your marketing', desc: '4 blog posts OR 8 short-form videos monthly' },
-                { name: 'Email Marketing', price: '$400', tagline: 'Nurture your audience', desc: '2 campaigns/month, list management, automations' },
-                { name: 'Paid Ads Management', price: '$500 + 15%', tagline: 'Get leads faster', desc: 'Google + Meta ads, reporting, optimisation' },
-                { name: 'Reputation Management', price: '$300', tagline: 'Build trust & reviews', desc: 'Review requests, monitoring, responses' },
+                { name: 'Starter Website', price: '$1,500', time: '1 week', tagline: 'Perfect for new businesses', features: ['Up to 5 pages', 'Mobile-optimised design', 'Basic SEO setup', 'Contact form', 'Google Analytics'] },
+                { name: 'Business Website', price: '$3,000', time: '2 weeks', tagline: 'For established SMEs', popular: true, features: ['10+ pages', 'Blog setup', 'Advanced SEO', 'Multiple forms', 'CRM integration'] },
+                { name: 'E-commerce Store', price: '$5,000', time: '2–3 weeks', tagline: 'Sell products online', features: ['Full online store', 'Payment gateway', 'Product management', 'Order notifications', 'Inventory tracking'] },
+                { name: 'Website Redesign', price: 'From $2,000', time: '1–2 weeks', tagline: 'Modernise your site', features: ['Fresh modern design', 'Content migration', 'SEO preservation', 'Speed optimisation', 'Mobile-first'] },
+                { name: 'Custom / Complex', price: 'Let\'s talk', time: 'Varies', tagline: 'Portals, dashboards, apps', features: ['Custom functionality', 'API integrations', 'User authentication', 'Admin panels', 'Tailored to your needs'] },
               ].map((service, i) => (
-                <div key={i} className="bg-gray-50 rounded-xl border border-gray-200 p-6 hover:border-indigo-200 hover:shadow-md transition">
-                  <h4 className="font-bold text-gray-900 mb-1">{service.name}</h4>
-                  <p className="text-xs text-indigo-600 font-medium mb-2">{service.tagline}</p>
-                  <div className="mb-2"><span className="text-2xl font-bold text-indigo-600">{service.price}</span><span className="text-gray-500">/month</span></div>
-                  <p className="text-sm text-gray-600">{service.desc}</p>
+                <div key={i} className={`rounded-2xl p-6 transition relative ${service.popular ? 'bg-indigo-600 text-white shadow-xl' : 'bg-white border border-gray-200 hover:border-indigo-200 hover:shadow-md'}`}>
+                  {service.popular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-orange-500 text-white text-sm font-medium px-4 py-1 rounded-full">Most Popular</span>
+                    </div>
+                  )}
+                  <h4 className={`font-bold text-lg mb-1 ${service.popular ? 'text-white' : 'text-gray-900'}`}>{service.name}</h4>
+                  <p className={`text-xs font-medium mb-3 ${service.popular ? 'text-indigo-200' : 'text-indigo-600'}`}>{service.tagline}</p>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className={`text-3xl font-bold ${service.popular ? 'text-white' : 'text-gray-900'}`}>{service.price}</span>
+                  </div>
+                  <p className={`text-sm mb-4 ${service.popular ? 'text-indigo-200' : 'text-gray-500'}`}>Delivered in {service.time}</p>
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((f, j) => (
+                      <li key={j} className="flex items-center gap-2 text-sm">
+                        <CheckCircle size={14} className={`flex-shrink-0 ${service.popular ? 'text-indigo-300' : 'text-green-500'}`} />
+                        <span className={service.popular ? 'text-white' : 'text-gray-600'}>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="https://calendly.com/shaminder_sg/letstalk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block text-center px-6 py-3 rounded-lg font-semibold transition ${
+                      service.popular
+                        ? 'bg-white text-indigo-600 hover:bg-indigo-50'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                    }`}
+                  >
+                    Get Started
+                  </a>
                 </div>
               ))}
+            </div>
+          </div>
+        )}
+
+        {/* Email Marketing - Cold Outbound */}
+        {tab === 'email' && (
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white relative shadow-xl overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+
+              <div className="relative">
+                <div className="flex items-center gap-2 mb-2">
+                  <Mail size={20} className="text-indigo-400" />
+                  <span className="text-sm font-semibold text-gray-400 uppercase tracking-wide">Done-For-You</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-2">Cold Outbound Email Marketing</h3>
+                <p className="text-gray-400 mb-6">Done-for-you B2B lead generation through cold email — fully managed, fully compliant.</p>
+
+                <div className="flex items-baseline gap-2 mb-4">
+                  <span className="text-5xl md:text-6xl font-bold">$1,500</span>
+                  <span className="text-xl text-gray-400">/month</span>
+                </div>
+
+                <div className="inline-flex items-center gap-2 bg-green-900/40 text-green-400 px-3 py-1.5 rounded-lg text-sm font-medium mb-8">
+                  <Shield size={14} />
+                  PDPA Compliant
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8">
+                  {[
+                    'Targeted prospect list building — ICP-matched leads',
+                    'Domain setup & warm-up — SPF, DKIM, DMARC configured',
+                    'Email copywriting — personalised sequences that convert',
+                    'Multi-step follow-up sequences — automated drip campaigns',
+                    'A/B testing — subject lines, copy, and send times',
+                    'Inbox management — reply handling and lead routing',
+                    'Campaign analytics — open rates, replies, conversions',
+                    'Monthly strategy call — review results and optimise',
+                    'CRM integration — leads pushed to your pipeline',
+                    'Deliverability monitoring — stay out of spam folders',
+                    'PDPA compliance — opt-out handling, data protection',
+                    'Dedicated campaign manager — WhatsApp support',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle size={16} className="text-indigo-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-300">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="https://calendly.com/shaminder_sg/letstalk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-indigo-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-indigo-700 transition"
+                  >
+                    Book a Free Strategy Call
+                    <ArrowRight className="ml-2" size={18} />
+                  </a>
+                  <a
+                    href="https://wa.me/6598137066?text=Hi%20Shaminder,%20I'm%20interested%20in%20the%20cold%20email%20marketing%20package"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-white/10 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition border border-white/20"
+                  >
+                    <MessageCircle className="mr-2" size={18} />
+                    Ask on WhatsApp
+                  </a>
+                </div>
+
+                <p className="text-gray-500 text-sm mt-6">No lock-in contract. 30-day notice to cancel. List building tools billed separately if applicable.</p>
+              </div>
             </div>
           </div>
         )}
 
         <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-4">Need something custom? Mix and match services to fit your needs.</p>
+          <p className="text-gray-600 mb-4">Not sure what you need? Let&apos;s figure it out together — no obligation.</p>
           <a href="https://calendly.com/shaminder_sg/letstalk" target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-medium hover:underline">Book a free call to discuss →</a>
         </div>
       </div>
