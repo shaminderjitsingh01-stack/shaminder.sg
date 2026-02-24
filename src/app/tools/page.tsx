@@ -33,12 +33,12 @@ export default function ToolsIndex() {
             <p className="text-gray-600 max-w-2xl mx-auto">Handy tools to help run your business. All free, no sign-up required.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-6">
             {tools.map((tool) => (
               <Link
                 key={tool.slug}
                 href={`/tools/${tool.slug}`}
-                className={`p-6 rounded-xl border hover:shadow-lg transition group ${tool.color.split(' ').slice(0, 2).join(' ')}`}
+                className={`p-4 sm:p-6 rounded-xl border hover:shadow-lg transition group ${tool.color.split(' ').slice(0, 2).join(' ')}`}
               >
                 <tool.icon size={32} className={`mb-4 ${tool.color.split(' ')[2]}`} />
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{tool.title}</h3>

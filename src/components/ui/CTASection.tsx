@@ -13,7 +13,7 @@ export default function CTASection({
     <section className="py-16 md:py-24 bg-indigo-600 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{title}</h2>
-        <p className="text-xl text-indigo-100 mb-8">{subtitle}</p>
+        <p className="text-base sm:text-lg md:text-xl text-indigo-100 mb-8">{subtitle}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="https://calendly.com/shaminder_sg/letstalk"

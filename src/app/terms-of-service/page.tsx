@@ -19,7 +19,7 @@ export default function TermsOfService() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Terms of Service</h1>
           <p className="text-sm text-gray-500 mb-8">Last Updated: 18 January 2026</p>
 
-          <div className="prose prose-gray max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-a:text-indigo-600">
+          <div className="prose prose-sm md:prose-lg prose-gray max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-a:text-indigo-600">
             <p>Welcome to shaminder.sg. These Terms of Service (&ldquo;Terms&rdquo;) govern your use of our website and services. By accessing our website or engaging our services, you agree to be bound by these Terms.</p>
             <p><strong>Business Information:</strong> Shaminder Technologies | UEN: 53517126J | Singapore</p>
 

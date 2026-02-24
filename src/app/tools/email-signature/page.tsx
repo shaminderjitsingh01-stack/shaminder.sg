@@ -50,7 +50,7 @@ export default function EmailSignature() {
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Email Signature Generator</h1>
           <p className="text-gray-600 mb-8">Create a professional email signature. Copy the HTML and paste into Gmail, Outlook, or any email client.</p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             {/* Form */}
             <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
               <div className="space-y-4">

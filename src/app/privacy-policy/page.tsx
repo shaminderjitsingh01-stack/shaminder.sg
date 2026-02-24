@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
           <p className="text-sm text-gray-500 mb-8">Last Updated: 18 January 2026</p>
 
-          <div className="prose prose-gray max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-a:text-indigo-600">
+          <div className="prose prose-sm md:prose-lg prose-gray max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-a:text-indigo-600">
             <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-6 mb-8">
               <p className="text-sm text-indigo-800 font-medium mb-2">PDPA Compliance Statement</p>
               <p className="text-sm text-indigo-700">This Privacy Policy is prepared in accordance with the Personal Data Protection Act 2012 (PDPA) of Singapore.</p>

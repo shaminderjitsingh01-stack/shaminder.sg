@@ -29,12 +29,12 @@ export default function IndustriesIndex() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
             {industries.map((industry) => (
               <Link
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
-                className="bg-gray-50 hover:bg-indigo-50 border border-gray-100 hover:border-indigo-200 p-4 rounded-xl transition group"
+                className="bg-gray-50 hover:bg-indigo-50 border border-gray-100 hover:border-indigo-200 p-2 sm:p-3 md:p-4 rounded-lg sm:rounded-xl transition group"
               >
                 <p className="text-2xl mb-2">{industry.features[0]?.emoji || '🏢'}</p>
                 <h3 className="font-semibold text-gray-900 text-sm mb-1">{industry.title.replace(' Websites', '')}</h3>

@@ -72,7 +72,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="pt-8 pb-16 md:pt-16 md:pb-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
               <div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                   We Help Singapore SMEs Get More{' '}
@@ -84,12 +84,12 @@ export default function Home() {
                 <p className="text-gray-500 mb-8">
                   Founded by Shaminder after seeing too many SMEs get burned by big agencies. We&apos;re a boutique consultancy — no inflated fees, no endless waiting, just results.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
                   <a
                     href="https://calendly.com/shaminder_sg/letstalk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center bg-indigo-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
                   >
                     <Calendar className="mr-2" size={20} />
                     Book a Free Strategy Call
@@ -98,7 +98,7 @@ export default function Home() {
                     href="https://wa.me/6598137066"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition"
+                    className="w-full sm:w-auto inline-flex items-center justify-center bg-green-500 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-green-600 transition"
                   >
                     <MessageCircle className="mr-2" size={20} />
                     WhatsApp Me
@@ -112,8 +112,8 @@ export default function Home() {
               </div>
               <div className="flex justify-center pb-8">
                 <div className="relative animate-float">
-                  <div className="absolute top-4 left-4 w-64 h-64 md:w-80 md:h-80 rounded-2xl border-2 border-indigo-400/50 shadow-[0_0_30px_rgba(99,102,241,0.3)]"></div>
-                  <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-indigo-500 shadow-[0_0_40px_rgba(99,102,241,0.4),0_20px_40px_rgba(0,0,0,0.2)]">
+                  <div className="absolute top-4 left-4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-2xl border-2 border-indigo-400/50 shadow-[0_0_30px_rgba(99,102,241,0.3)]"></div>
+                  <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-2 border-indigo-500 shadow-[0_0_40px_rgba(99,102,241,0.4),0_20px_40px_rgba(0,0,0,0.2)]">
                     <img src="/shaminder.jpg" alt="Shaminderjit Singh" className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 border border-gray-100">

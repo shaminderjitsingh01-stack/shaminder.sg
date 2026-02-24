@@ -167,7 +167,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <article className="py-8 md:py-12 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <div
-              className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-600 prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-img:rounded-lg prose-blockquote:border-indigo-300 prose-blockquote:text-gray-700 prose-li:text-gray-600"
+              className="prose prose-sm md:prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-600 prose-a:text-indigo-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-img:rounded-lg prose-blockquote:border-indigo-300 prose-blockquote:text-gray-700 prose-li:text-gray-600"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>

@@ -78,11 +78,11 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
               Why Your Business Needs a <span className="text-indigo-600">Modern Website</span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {industry.features.map((f, i) => (
-                <div key={i} className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-md transition">
-                  <span className="text-3xl mb-3 block">{f.emoji}</span>
-                  <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
+                <div key={i} className="bg-gray-50 p-3 sm:p-6 rounded-lg sm:rounded-xl border border-gray-100 hover:shadow-md transition">
+                  <span className="text-2xl sm:text-3xl mb-2 sm:mb-3 block">{f.emoji}</span>
+                  <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                   <p className="text-gray-600 text-sm">{f.desc}</p>
                 </div>
               ))}
@@ -96,9 +96,9 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
               What&apos;s <span className="text-indigo-600">Included</span>
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
               {industry.benefits.map((b, i) => (
-                <div key={i} className="flex items-center gap-3 bg-white p-3 rounded-lg">
+                <div key={i} className="flex items-center gap-2 sm:gap-3 bg-white p-2 sm:p-3 rounded-lg">
                   <CheckCircle size={18} className="text-green-500 flex-shrink-0" />
                   <span className="text-gray-700 text-sm">{b}</span>
                 </div>

@@ -40,10 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/android-chrome-192x192.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#4f46e5" />
       </head>
       <body className="antialiased">
         {children}

@@ -85,7 +85,7 @@ export default function PdfMergeSplit() {
             {/* Upload Area */}
             <div
               onClick={() => inputRef.current?.click()}
-              className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50/50 transition mb-4"
+              className="border-2 border-dashed border-gray-300 rounded-lg sm:rounded-xl p-4 sm:p-8 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50/50 transition mb-4"
             >
               <Upload size={32} className="text-gray-400 mx-auto mb-3" />
               <p className="text-gray-600 font-medium">Click to select PDF files</p>
@@ -101,7 +101,7 @@ export default function PdfMergeSplit() {
                     <div className="flex items-center gap-3">
                       <FileText size={18} className="text-red-500" />
                       <div>
-                        <p className="text-sm font-medium text-gray-900 truncate max-w-[200px]">{file.name}</p>
+                        <p className="text-xs sm:text-sm font-medium text-gray-900 truncate max-w-[120px] sm:max-w-[200px]">{file.name}</p>
                         <p className="text-xs text-gray-500">{(file.size / 1024).toFixed(1)} KB</p>
                       </div>
                     </div>

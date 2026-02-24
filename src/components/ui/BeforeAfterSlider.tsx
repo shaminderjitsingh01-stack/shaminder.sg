@@ -14,7 +14,7 @@ export default function BeforeAfterSlider({ beforeSrc, afterSrc, beforeAlt, afte
 
   return (
     <div className="relative">
-      <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-2xl select-none">
+      <div className="relative w-full aspect-square sm:aspect-[4/3] rounded-xl overflow-hidden shadow-2xl select-none">
         {/* After Image (Background) */}
         <img src={afterSrc} alt={afterAlt} className="absolute inset-0 w-full h-full object-cover object-top" />
 
