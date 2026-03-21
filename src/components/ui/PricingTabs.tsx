@@ -45,9 +45,8 @@ export default function PricingTabs() {
                   <p className="text-gray-600 text-sm mb-4">Experience our digital marketing service risk-free for 7 days. See the quality before you decide.</p>
                   <div className="flex flex-wrap gap-x-6 gap-y-2">
                     {[
-                      'Full SEO audit of your website',
-                      '4 social media posts across 8 platforms',
-                      '1 blog article generated & published',
+                      '1 short-form video (Reels/TikTok/Shorts)',
+                      '3 social media posts across 8 platforms',
                     ].map((item, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <CheckCircle size={14} className="text-green-500 flex-shrink-0" />
@@ -88,23 +87,26 @@ export default function PricingTabs() {
                 <p className="text-indigo-200 mb-6">Everything you need to grow online — managed by us, powered by our proprietary marketing platform.</p>
 
                 <div className="flex items-baseline gap-2 mb-8">
-                  <span className="text-5xl md:text-6xl font-bold">$1,500</span>
+                  <span className="text-5xl md:text-6xl font-bold">$700</span>
                   <span className="text-xl text-indigo-200">/month</span>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-x-8 gap-y-3 mb-8">
                   {[
-                    'SEO — keyword tracking, backlinks, competitor monitoring',
-                    'Social media — 16 posts/month across 8 platforms',
-                    'Google Business Profile — setup, posts & review management',
+                    'SEO — keyword tracking & backlinks',
+                    'Social media — 8 posts + 4 short-form videos/month',
                     'Content creation — 4 blog articles/month',
+                    '8 platform distribution — LinkedIn, Meta, TikTok & more',
+                    'Google Business Profile — setup & optimisation',
+                    'Google Analytics & Search Console — setup & tracking',
                     'Paid ads management — Google, Meta, TikTok, LinkedIn',
+                    'AI chatbot — WhatsApp & website setup included',
                     'Push notifications — web push campaigns',
                     'Monthly performance reports — AI-powered insights',
                     'Real-time marketing dashboard — full transparency',
                     'Content approval workflow — review before it goes live',
-                    'Competitor analysis — stay ahead of your rivals',
                     'Dedicated account manager — WhatsApp support',
+                    'Monthly strategy call — review results & plan ahead',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <CheckCircle size={16} className="text-indigo-300 flex-shrink-0 mt-0.5" />
@@ -124,7 +126,7 @@ export default function PricingTabs() {
                     <ArrowRight className="ml-2" size={18} />
                   </a>
                   <a
-                    href="https://wa.me/6598137066?text=Hi%20Shaminder,%20I'm%20interested%20in%20the%20$1,500/mo%20digital%20marketing%20package"
+                    href="https://wa.me/6598137066?text=Hi%20Shaminder,%20I'm%20interested%20in%20the%20$700/mo%20digital%20marketing%20package"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center bg-white/10 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/20 transition border border-white/20"
