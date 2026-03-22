@@ -9,10 +9,12 @@ export default function PricingTabs() {
   return (
     <section id="packages" className="py-16 md:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Hari Raya / Eid Special Banner */}
-        <div className="bg-green-600 text-white text-center py-3 px-6 rounded-xl mb-8 shadow-lg">
-          <span className="text-lg md:text-xl font-bold">&#9770; Hari Raya / Eid Special !! &#9770;</span>
-        </div>
+        {/* Hari Raya / Eid Special Banner — remove after 4 Apr 2026 */}
+        {new Date() < new Date('2026-04-05') && (
+          <div className="bg-green-600 text-white text-center py-3 px-6 rounded-xl mb-8 shadow-lg">
+            <span className="text-lg md:text-xl font-bold">☪ Hari Raya / Eid Special !! ☪</span>
+          </div>
+        )}
 
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Transparent Pricing</h2>
         <p className="text-gray-600 text-center mb-8">Simple, honest pricing. No hidden fees. Cancel anytime.</p>
