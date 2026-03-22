@@ -13,6 +13,7 @@ export default function PricingTabs() {
         {new Date() < new Date('2026-04-05') && (
           <div className="bg-green-600 text-white text-center py-3 px-6 rounded-xl mb-8 shadow-lg">
             <span className="text-lg md:text-xl font-bold">☪ Hari Raya / Eid Special !! ☪</span>
+            <p className="text-sm mt-1">Till 4th April 2026. <a href="tel:+6598137066" className="underline font-bold">Call Now !!</a></p>
           </div>
         )}
 
