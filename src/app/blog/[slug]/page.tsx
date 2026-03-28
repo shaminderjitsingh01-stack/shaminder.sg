@@ -8,7 +8,8 @@ import WhatsAppFloat from '@/components/layout/WhatsAppFloat'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import CTASection from '@/components/ui/CTASection'
 import SchemaMarkup from '@/components/seo/SchemaMarkup'
-import { getPostBySlug, getAllSlugs } from '@/lib/blog'
+import { getPostBySlug, getAllSlugs, getRelatedPosts, extractFAQs } from '@/lib/blog'
+import RelatedPosts from '@/components/blog/RelatedPosts'
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }))
@@ -71,6 +72,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug)
   if (!post) notFound()
 
+  const relatedPosts = getRelatedPosts(params.slug, 3).map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    description: p.description,
+    date: p.date,
+    category: p.category,
+    readingTime: p.readingTime,
+    image: p.image,
+  }))
+
   const isDefaultImage = post.image.includes('shaminder.jpg')
 
   const articleSchema = {
@@ -105,9 +116,28 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     wordCount: post.content.replace(/<[^>]*>/g, '').split(/\s+/).length,
   }
 
+  // Extract FAQ schema from post content (questions in h2/h3 ending with ?)
+  const faqs = extractFAQs(post.content)
+  const faqSchema = faqs.length >= 2
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null
+
+  const schemas = faqSchema ? [articleSchema, faqSchema] : articleSchema
+
   return (
     <>
-      <SchemaMarkup data={articleSchema} />
+      <SchemaMarkup data={schemas} />
       <Navbar />
       <div className="min-h-screen bg-white">
         {/* Header */}
@@ -172,6 +202,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             />
           </div>
         </article>
+
+        {/* Related Posts */}
+        <RelatedPosts posts={relatedPosts} />
 
         {/* CTA */}
         <CTASection

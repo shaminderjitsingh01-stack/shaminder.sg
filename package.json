@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seo:audit": "node scripts/create-blog-post.js --audit all",
+    "seo:check": "node scripts/create-blog-post.js --audit",
+    "blog:new": "node scripts/create-blog-post.js",
+    "blog:links": "node scripts/add-internal-links.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
