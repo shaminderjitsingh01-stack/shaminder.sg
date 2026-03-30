@@ -1,6 +1,7 @@
 'use client'
 
-import { Calendar, MessageCircle, CheckCircle, ArrowRight, ExternalLink, Globe, TrendingUp, Search, Heart, Users, Play } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Calendar, MessageCircle, CheckCircle, ExternalLink, Play } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppFloat from '@/components/layout/WhatsAppFloat'
@@ -63,7 +64,18 @@ const homeSchema = [
   },
 ]
 
+const FALLBACK_IDS = ['ZLMRVyhKzRM', 'VZyfDEVEDTE', 'SLmryJ3Wl6I', 'NGaucg8C0E4']
+
 export default function Home() {
+  const [videoIds, setVideoIds] = useState<string[]>(FALLBACK_IDS)
+
+  useEffect(() => {
+    fetch('/api/youtube')
+      .then(r => r.json())
+      .then(d => { if (d.videos?.length) setVideoIds(d.videos) })
+      .catch(() => {})
+  }, [])
+
   return (
     <>
       <SchemaMarkup data={homeSchema} />
@@ -126,126 +138,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Problem Section */}
-        <section className="py-16 md:py-24 bg-gray-900 px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Sound Familiar?</h2>
-            <p className="text-gray-400 text-center mb-12">Things we hear from SME owners every week:</p>
-            <div className="space-y-6">
-              {[
-                "I know I need to be online, but I don't know where to start.",
-                "I paid an agency thousands and got nothing but excuses.",
-                "My website looks outdated and I'm embarrassed to share it.",
-                'I post on social media but nobody enquires.',
-                "I don't have time to figure out marketing — I have a business to run.",
-              ].map((pain, i) => (
-                <div key={i} className="border-l-4 border-indigo-500 pl-6 py-2">
-                  <p className="text-base sm:text-xl text-gray-300 italic">&ldquo;{pain}&rdquo;</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-12 text-center">
-              <p className="text-lg text-gray-400 mb-2">
-                You&apos;re not alone. <span className="text-white font-medium">7 out of 10</span> Singapore SMEs say the same thing.
-              </p>
-              <p className="text-xl text-indigo-400 font-medium">The good news? It doesn&apos;t have to be this hard.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Solution Section */}
-        <section id="services" className="py-16 md:py-24 px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">What We Do For You</h2>
-            <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-              One system. One team. One monthly fee. Everything working together to grow your business.
-            </p>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-2xl border border-indigo-100 hover:shadow-lg transition group">
-                <div className="w-14 h-14 bg-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                  <Search className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Get Found Online</h3>
-                <p className="text-sm text-indigo-600 font-medium mb-3">Website + SEO + Google Business</p>
-                <p className="text-gray-600">A professional website that ranks on Google and converts visitors into customers.</p>
-                <div className="mt-4 pt-4 border-t border-indigo-100">
-                  <span className="inline-flex items-center text-sm text-indigo-600 font-medium"><CheckCircle size={14} className="mr-2" /> 48-hour delivery</span>
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl border border-orange-100 hover:shadow-lg transition group">
-                <div className="w-14 h-14 bg-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                  <Heart className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Stay Top of Mind</h3>
-                <p className="text-sm text-orange-600 font-medium mb-3">Social Media + Email + Content</p>
-                <p className="text-gray-600">Consistent content that keeps your brand visible without you lifting a finger.</p>
-                <div className="mt-4 pt-4 border-t border-orange-100">
-                  <span className="inline-flex items-center text-sm text-orange-600 font-medium"><CheckCircle size={14} className="mr-2" /> 12+ posts monthly</span>
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-100 hover:shadow-lg transition group">
-                <div className="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                  <Users className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Fill Your Calendar</h3>
-                <p className="text-sm text-green-600 font-medium mb-3">Leads + CRM + Automation</p>
-                <p className="text-gray-600">Leads that turn into revenue with automated follow-ups and booking systems.</p>
-                <div className="mt-4 pt-4 border-t border-green-100">
-                  <span className="inline-flex items-center text-sm text-green-600 font-medium"><CheckCircle size={14} className="mr-2" /> Hands-off system</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section className="py-16 md:py-24 bg-gray-50 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Simple Process. Real Results.</h2>
-            <p className="text-gray-600 text-center mb-12">No complicated onboarding. No endless meetings.</p>
-            <div className="relative">
-              <div className="hidden md:block absolute top-12 left-0 right-0 h-1 bg-indigo-200"></div>
-              <div className="grid md:grid-cols-3 gap-8">
-                {[
-                  { icon: Calendar, title: 'We Talk', desc: 'Book a free call. Share your goals. Get honest advice — no sales pitch.' },
-                  { icon: Globe, title: 'We Build', desc: 'We create your website and marketing. You focus on your business.' },
-                  { icon: TrendingUp, title: 'You Grow', desc: 'Leads come in. Customers find you. We keep optimising.' },
-                ].map((item, i) => (
-                  <div key={i} className="relative text-center">
-                    <div className="w-24 h-24 bg-white rounded-full border-4 border-indigo-600 flex items-center justify-center mx-auto mb-6 relative z-10">
-                      <item.icon className="text-indigo-600" size={36} />
-                    </div>
-                    <span className="inline-block bg-indigo-600 text-white text-sm font-bold px-3 py-1 rounded-full mb-3">Step {i + 1}</span>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="text-center mt-12">
-              <a
-                href="https://calendly.com/shaminder_sg/letstalk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-indigo-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-indigo-700 transition text-lg"
-              >
-                Let&apos;s Start With a Call
-                <ArrowRight className="ml-2" size={20} />
-              </a>
-            </div>
-          </div>
-        </section>
 
         {/* Results Section */}
         <section id="results" className="py-16 md:py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Results That Speak</h2>
-            <p className="text-gray-600 text-center mb-12">Real work. Real outcomes.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">Don&apos;t Take Our Word For It</h2>
+            <p className="text-gray-600 text-center mb-12">See the before and after. Judge for yourself.</p>
             <div className="bg-gradient-to-br from-indigo-50 to-white rounded-2xl p-8 md:p-12 border border-indigo-100">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <span className="inline-block bg-indigo-100 text-indigo-700 text-sm font-medium px-3 py-1 rounded-full mb-4">Case Study</span>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Susan Batik House</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4"><a href="https://susanbatikhouse.sg" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition">Susan Batik House</a></h3>
                   <p className="text-gray-600 mb-6">A 35-year-old heritage batik business needed a modern online presence that honored their craftsmanship while attracting new customers.</p>
                   <div className="space-y-3 mb-6">
                     <p className="text-gray-600"><strong className="text-gray-900">Before:</strong> Outdated website, no e-commerce, limited online reach</p>
@@ -276,11 +179,13 @@ export default function Home() {
         <section className="py-16 md:py-24 bg-gray-900 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Behind the Scenes</h2>
-              <p className="text-gray-400">Quick tips and real talk from our YouTube channel</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">We Spin. We Build. We Film.</h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                We spin a random area and a random business type in Singapore. Then we find a real business without a website, build one for free, and film the entire process. Watch the latest builds.
+              </p>
             </div>
             <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
-              {['ZLMRVyhKzRM', 'VZyfDEVEDTE', 'SLmryJ3Wl6I', 'NGaucg8C0E4'].map((id, i) => (
+              {videoIds.map((id, i) => (
                 <div key={i} className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-gray-800 min-w-[70vw] sm:min-w-[55vw] md:min-w-[280px] flex-shrink-0 snap-center">
                   <iframe
                     src={`https://www.youtube.com/embed/${id}`}
@@ -292,10 +197,40 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="text-center mt-8">
-              <a href="https://www.youtube.com/@shaminder_sg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-indigo-400 font-medium hover:text-indigo-300 transition">
-                <Play size={16} className="mr-2" /> Watch more on YouTube
-              </a>
+            <div className="mt-16 max-w-xl mx-auto">
+              <div className="text-center mb-8">
+                <p className="text-xl text-white font-semibold mb-2">Want to skip the queue?</p>
+                <p className="text-gray-400">
+                  Submit your business and we&apos;ll build your website, film the entire process, publish it on our channel, and send you the video. No obligations.
+                </p>
+              </div>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  const fd = new FormData(e.currentTarget)
+                  const msg = `Hi Shaminder, I'd like you to build my business website and film it!%0A%0AName: ${fd.get('name')}%0APhone: ${fd.get('phone')}%0AEmail: ${fd.get('email')}%0ABusiness: ${fd.get('business')}%0AIndustry: ${fd.get('industry')}`
+                  window.open(`https://wa.me/6598137066?text=${msg}`, '_blank')
+                }}
+                className="space-y-4"
+              >
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <input name="name" required placeholder="Name" className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none" />
+                  <input name="phone" required placeholder="Phone Number" type="tel" className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none" />
+                </div>
+                <input name="email" required placeholder="Email" type="email" className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none" />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <input name="business" required placeholder="Business Name" className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none" />
+                  <input name="industry" required placeholder="Industry (e.g. F&B, Retail)" className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none" />
+                </div>
+                <button type="submit" className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition text-lg">
+                  Submit Your Business
+                </button>
+              </form>
+              <div className="text-center mt-6">
+                <a href="https://www.youtube.com/@shaminder_sg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-gray-400 font-medium hover:text-indigo-400 transition">
+                  <Play size={16} className="mr-2" /> Watch More Builds
+                </a>
+              </div>
             </div>
           </div>
         </section>
