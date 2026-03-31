@@ -3,7 +3,7 @@ import { Phone, Mail, Zap } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12 px-4 sm:px-6">
+    <footer className="bg-black text-gray-400 py-12 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}

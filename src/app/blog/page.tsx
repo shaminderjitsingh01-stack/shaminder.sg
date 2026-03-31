@@ -35,20 +35,21 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-white">
-        {/* Hero — server-rendered for SEO */}
-        <section className="bg-indigo-50 py-16 md:py-24 px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero — dark header */}
+        <section className="bg-black py-16 md:py-24 px-4 sm:px-6 relative overflow-hidden">
+          <div className="absolute inset-0" style={{ opacity: 0.05, backgroundImage: 'linear-gradient(rgba(99,102,241,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+          <div className="max-w-6xl mx-auto relative">
             <Breadcrumb
               items={[
                 { label: 'Home', href: '/' },
                 { label: 'Blog' },
               ]}
             />
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Blog
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl">
+            <p className="text-xl text-gray-400 max-w-2xl">
               Insights on web design, digital marketing, SEO, and AI for Singapore SMEs
             </p>
           </div>

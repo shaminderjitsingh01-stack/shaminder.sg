@@ -24,14 +24,20 @@ export default function ToolsIndex() {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-          <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Free Tools' }]} />
-
-          <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Free Business Tools</h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">Handy tools to help run your business. All free, no sign-up required.</p>
+      <div className="min-h-screen bg-gray-50">
+        {/* Dark header */}
+        <section className="bg-black py-16 md:py-20 px-4 sm:px-6 relative overflow-hidden">
+          <div className="absolute inset-0" style={{ opacity: 0.05, backgroundImage: 'linear-gradient(rgba(99,102,241,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+          <div className="max-w-4xl mx-auto relative">
+            <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Free Tools' }]} />
+            <div className="text-center">
+              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Free Business Tools</h1>
+              <p className="text-gray-400 max-w-2xl mx-auto">Handy tools to help run your business. All free, no sign-up required.</p>
+            </div>
           </div>
+        </section>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
 
           <div className="grid md:grid-cols-2 gap-3 sm:gap-6">
             {tools.map((tool) => (

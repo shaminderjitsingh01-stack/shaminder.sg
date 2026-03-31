@@ -140,9 +140,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <SchemaMarkup data={schemas} />
       <Navbar />
       <div className="min-h-screen bg-white">
-        {/* Header */}
-        <section className="bg-indigo-50 py-12 md:py-20 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
+        {/* Header — dark */}
+        <section className="bg-black py-12 md:py-20 px-4 sm:px-6 relative overflow-hidden">
+          <div className="absolute inset-0" style={{ opacity: 0.04, backgroundImage: 'linear-gradient(rgba(99,102,241,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+          <div className="max-w-4xl mx-auto relative">
             <Breadcrumb
               items={[
                 { label: 'Home', href: '/' },
@@ -157,10 +158,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             >
               {post.category}
             </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               {post.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
               <span className="flex items-center gap-1.5">
                 <User size={16} />
                 Shaminder Singh

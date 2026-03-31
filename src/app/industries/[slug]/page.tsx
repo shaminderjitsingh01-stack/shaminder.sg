@@ -50,9 +50,10 @@ export default function IndustryPage({ params }: { params: { slug: string } }) {
       <SchemaMarkup data={schema} />
       <Navbar />
       <div className="min-h-screen bg-white">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 py-16 md:py-24 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
+        {/* Hero — dark */}
+        <section className="bg-black py-16 md:py-24 px-4 sm:px-6 relative overflow-hidden">
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(99,102,241,0.12) 0%, transparent 60%)' }} />
+          <div className="max-w-4xl mx-auto relative">
             <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Industries', href: '/industries' }, { label: industry.title.replace(' Websites', '') }]} />
             <span className="inline-block bg-white/20 text-white text-sm font-medium px-4 py-1 rounded-full mb-6">{industry.badge}</span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">

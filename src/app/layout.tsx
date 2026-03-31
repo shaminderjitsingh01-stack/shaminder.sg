@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import ScrollReset from '@/components/layout/ScrollReset'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -45,6 +46,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/android-chrome-192x192.png" />
       </head>
       <body className="antialiased">
+        <script dangerouslySetInnerHTML={{ __html: `document.body.style.overflow=location.pathname==='/'?'hidden':'auto'` }} />
+        <ScrollReset />
         {children}
         {/* Google Analytics */}
         <Script
